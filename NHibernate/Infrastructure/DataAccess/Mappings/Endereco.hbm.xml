@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Core" namespace="Core.Domain.Model">
+	<class name="Endereco" table="Endereco">
+
+		<id name="IdEndereco" column="IdEndereco" type="Decimal" unsaved-value="0">
+			<generator class="identity"/>
+		</id>
+		
+		<property column="Logradouro" type="String" name="Logradouro" />
+		<property column="Bairro" type="String" name="Bairro" />
+		<property column="Numero" type="String" name="Numero" />
+		<property column="Complemento" type="String" name="Complemento" />
+		<property column="CEP" type="String" name="Cep" />
+		<property column="Cidade" type="String" name="Cidade" />
+		<property column="Estado" type="String" name="Estado" />
+		<property column="Pais" type="String" name="Pais" />
+		<many-to-one name="Pessoa" column="IdPessoa" class="Pessoa" />
+		
+		
+	</class>
+</hibernate-mapping>

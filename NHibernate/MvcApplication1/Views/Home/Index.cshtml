@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section featured {
+<section class="featured">
+    <div class="content-wrapper">
+        <hgroup class="title">
+            <h1>@ViewBag.Title.</h1>
+            <h2> Seja vem-vindo ao cadastro de alunos da Universidade XYZ</h2>
+        </hgroup>
+        <p>
+           Este sistema foi desenvolvido em ASP.NET MVC 4/Razor + nHibernate + WCF + .NET 4.0 + MS SQL Server.
+        </p>
+    </div>
+</section>
+}
+
+
+<h3>Opções disponíveis:</h3>
+
+<ol class="round">
+    <li class="one">
+        <h5>@Html.ActionLink("Cadastro de Alunos", "Create", "Pessoa")</h5>
+        Aqui você cadastra alunos com a mesma produtividade que este cadastro foi criado.
+    </li>
+    <li class="two">
+        <h5>@Html.ActionLink("Listar Alunos", "Index", "Pessoa")</h5>
+       Aqui você lista e visualiza alunos com a mesma facilidade que criou.
+    </li>
+</ol>
+

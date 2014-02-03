@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MvcApplication1.Models.HistoricoProfissionalModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HabilidadePessoal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HabilidadeTecnica)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+       
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HabilidadePessoal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HabilidadeTecnica)
+            </td>
+            <td>
+                @Html.ActionLink("Criar", "Create", new { id=item.IdPessoa }) |
+                @Html.ActionLink("Detalhes", "Details", new { id=item.IdHistoricoProfissional }) | 
+                @if(Model.Count() > 1) {
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.IdHistoricoProfissional });
+                } 
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

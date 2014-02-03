@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Core" namespace="Core.Domain.Model">
+  <class name="Pessoa" table="Pessoa">
+
+    <id name="IdPessoa" column="IdPessoa" type="Decimal" unsaved-value="0">
+      <generator class="identity"/>
+    </id>
+
+    <property column="Nome" type="String" name="Nome" />
+    <property column="NomeMae" type="String" name="NomeMae" />
+    <property column="NomePai" type="String" name="NomePai" />
+    <property column="DataNascimento" type="DateTime" name="DataNascimento" />
+    <property column="RG" type="String" name="Rg" />
+    <property column="CPF" type="String" name="Cpf" />
+    <property column="Estrangeiro" type="bool" name="Estrangeiro" />
+    <property column="IdentificacaoEstrangeiro" type="String" name="IdentificacaoEstrangeiro" />
+
+    <bag name="EnderecoList" inverse="true" lazy="true" >
+      <key column="IdPessoa" />
+      <one-to-many class="Endereco" />
+    </bag>
+    <bag name="HistoricoAcademicoList" inverse="true" lazy="true" >
+      <key column="IdPessoa" />
+      <one-to-many class="HistoricoAcademico" />
+    </bag>
+    <bag name="HistoricoProfissionalList" inverse="true" lazy="true" >
+      <key column="IdPessoa" />
+      <one-to-many class="HistoricoProfissional" />
+    </bag>
+
+  </class>
+</hibernate-mapping>

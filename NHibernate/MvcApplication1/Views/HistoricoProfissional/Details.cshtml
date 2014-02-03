@@ -1,0 +1,66 @@
+﻿@model MvcApplication1.Models.HistoricoProfissionalModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <fieldset>
+        <legend>HistoricoProfissionalModel</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Empresa)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Empresa)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Cargo)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Cargo)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.DataInicio)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.DataInicio)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.DataFim)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.DataFim)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.HabilidadePessoal)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.HabilidadePessoal)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.HabilidadeTecnica)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.HabilidadeTecnica)
+        </div>
+    </fieldset>
+    <p>
+        @Html.ActionLink("Listar", "Index", new { id = Model.IdPessoa })
+    </p>
+</body>
+</html>

@@ -1,0 +1,73 @@
+﻿@model MvcApplication1.Models.HistoricoAcademicoModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Tem certeza que deseja excluir isto?</h3>
+    <fieldset>
+        <legend>HistoricoAcademicoModel</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Curso)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Curso)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Instituicao)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Instituicao)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.DataInicio)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.DataInicio)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.DataFim)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.DataFim)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Nota)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nota)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Presenca)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Presenca)
+        </div>
+    </fieldset>
+    @using (Html.BeginForm()) {
+        <p>
+            <input type="submit" value="Delete" /> 
+        </p>
+    }
+
+    <p>
+        @Html.ActionLink("Listar", "Index", new { id=Model.IdPessoa })
+    </p>
+
+</body>
+</html>

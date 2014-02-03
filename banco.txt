@@ -1,0 +1,106 @@
+/*
+Created: 10/12/2011
+Modified: 10/12/2011
+Model: Microsoft SQL Server 2008
+Database: MS SQL Server 2008
+*/
+
+-- Create tables section -------------------------------------------------
+
+-- Table Pessoa
+
+CREATE TABLE [Pessoa]
+(
+ [IdPessoa] Int IDENTITY NOT NULL,
+ [Nome] Varchar(256) NULL,
+ [NomeMae] Varchar(256) NULL,
+ [NomePai] Varchar(256) NULL,
+ [DataNascimento] Date NULL,
+ [RG] Varchar(100) NULL,
+ [CPF] Varchar(20) NULL,
+ [Estrangeiro] Bit NULL,
+ [IdentificacaoEstrangeiro] Varchar(256) NULL
+)
+go
+
+-- Add keys for table Pessoa
+
+ALTER TABLE [Pessoa] ADD CONSTRAINT [Key1] PRIMARY KEY ([IdPessoa])
+go
+
+-- Table Endereco
+
+CREATE TABLE [Endereco]
+(
+ [IdEndereco] Int IDENTITY NOT NULL,
+ [Logradouro] Varchar(512) NULL,
+ [Bairro] Varchar(256) NULL,
+ [Numero] Varchar(20) NULL,
+ [Complemento] Varchar(256) NULL,
+ [CEP] Varchar(10) NULL,
+ [Cidade] Varchar(100) NULL,
+ [Estado] Varchar(100) NULL,
+ [Pais] Varchar(256) NULL,
+ [IdPessoa] Int NULL
+)
+go
+
+-- Add keys for table Endereco
+
+ALTER TABLE [Endereco] ADD CONSTRAINT [Key2] PRIMARY KEY ([IdEndereco])
+go
+
+-- Table HistoricoAcademico
+
+CREATE TABLE [HistoricoAcademico]
+(
+ [IdHistoricoAcademico] Int IDENTITY NOT NULL,
+ [Curso] Varchar(512) NULL,
+ [Instituicao] Varchar(512) NULL,
+ [DataInicio] Date NULL,
+ [DataFim] Date NULL,
+ [FgConcluido] Bit NULL,
+ [IdPessoa] Int NULL,
+ [Nota] Float NULL,
+ [Presenca] Float NULL
+)
+go
+
+-- Add keys for table HistoricoAcademico
+
+ALTER TABLE [HistoricoAcademico] ADD CONSTRAINT [Key3] PRIMARY KEY ([IdHistoricoAcademico])
+go
+
+-- Table HistoricoProfissional
+
+CREATE TABLE [HistoricoProfissional]
+(
+ [IdHistoricoProfissiona] Int IDENTITY NOT NULL,
+ [Empresa] Varchar(256) NULL,
+ [Cargo] Char(512) NULL,
+ [DataInicio] Date NULL,
+ [DataFim] Date NULL,
+ [HabilidadesIntraPessoais] Varchar(512) NULL,
+ [HabilidadesTecnicas] Varchar(512) NULL,
+ [IdPessoa] Int NULL
+)
+go
+
+-- Add keys for table HistoricoProfissional
+
+ALTER TABLE [HistoricoProfissional] ADD CONSTRAINT [Key4] PRIMARY KEY ([IdHistoricoProfissiona])
+go
+
+-- Create relationships section ------------------------------------------------- 
+
+ALTER TABLE [Endereco] ADD CONSTRAINT [PessoaEndereco] FOREIGN KEY ([IdPessoa]) REFERENCES [Pessoa] ([IdPessoa])
+go
+
+ALTER TABLE [HistoricoAcademico] ADD CONSTRAINT [PessoaHistoricoAcademico] FOREIGN KEY ([IdPessoa]) REFERENCES [Pessoa] ([IdPessoa])
+go
+
+ALTER TABLE [HistoricoProfissional] ADD CONSTRAINT [PessoaHistoricoProfissional] FOREIGN KEY ([IdPessoa]) REFERENCES [Pessoa] ([IdPessoa])
+go
+
+
+

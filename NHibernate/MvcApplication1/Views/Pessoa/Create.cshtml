@@ -1,0 +1,92 @@
+﻿@model MvcApplication1.Models.PessoaModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Html.EnableClientValidation(true);
+   
+}
+
+<h2>Create - Pessoa</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>PessoaModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nome)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nome)
+            @Html.ValidationMessageFor(model => model.Nome)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NomeMae)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NomeMae)
+            @Html.ValidationMessageFor(model => model.NomeMae)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NomePai)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NomePai)
+            @Html.ValidationMessageFor(model => model.NomePai)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DataNascimento)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DataNascimento)
+            @Html.ValidationMessageFor(model => model.DataNascimento)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RG)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RG)
+            @Html.ValidationMessageFor(model => model.RG)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CPF)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CPF)
+            @Html.ValidationMessageFor(model => model.CPF)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Estrangeiro)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Estrangeiro)
+            @Html.ValidationMessageFor(model => model.Estrangeiro)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdentidadeEstrangeira)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IdentidadeEstrangeira)
+            @Html.ValidationMessageFor(model => model.IdentidadeEstrangeira)
+        </div>
+
+
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+

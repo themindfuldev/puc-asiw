@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="Core" namespace="Core.Domain.Model">
+	<class name="HistoricoAcademico" table="HistoricoAcademico">
+
+		<id name="IdHistoricoAcademico" column="IdHistoricoAcademico" type="Decimal" unsaved-value="0">
+			<generator class="identity"/>
+		</id>
+		
+		<property column="Curso" type="String" name="Curso" />
+		<property column="Instituicao" type="String" name="Instituicao" />
+		<property column="DataInicio" type="DateTime" name="DataInicio" />
+		<property column="DataFim" type="DateTime" name="DataFim" />
+    <property column="Nota" type="float" name="Nota" />
+    <property column="Presenca" type="float" name="Presenca" />
+    <many-to-one name="Pessoa" column="IdPessoa" class="Pessoa" />
+		
+	</class>
+</hibernate-mapping>
